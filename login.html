@@ -2,16 +2,23 @@
 <html>
 <head>
   <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="styles/forms.css">
+  <link rel='stylesheet' type="text/css" href='https://fonts.googleapis.com/css?family=Rubik'>
 </head>
 <body>
-  <h3>Login</h3>
+  <div class="menuBar">
+    <h1 style="text-align: left;">TRACKER</h1>
+  </div>
 
-  <form action="login.php" method="post">
-    Username: <input type="text" name="user"><br>
-    Password: <input type="password" name="pwd"><br>
-    <button type="submit">Login</button>
-  </form>
-  <br>
-  <h4>Don't have an account <a href="register.html">register</a> now</h4>
+  <div class="form">
+    <h1>LOGIN</h1>
+    <form action="login.php" method="post">
+      <input type="text" name="user" placeholder="Username"><br><br>
+      <input type="password" name="pwd" placeholder="Password"><br><br>
+      <button type="submit">SIGN IN</button>
+    </form>
+    <br>
+    <h4>Don't have an account? <a href="register.html">Register</a> now</h4>
+  </div>
 </body>
 </html>

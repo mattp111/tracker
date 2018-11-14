@@ -2,12 +2,23 @@
 <html>
 <head>
   <title>Register</title>
+  <link rel="stylesheet" type="text/css" href="styles/forms.css">
+  <link rel='stylesheet' type="text/css" href='https://fonts.googleapis.com/css?family=Rubik'>
 </head>
 <body>
-  <h3>Register</h3>
+  <div class="menuBar">
+    <h1 style="text-align: left;">TRACKER</h1>
+  </div>
 
-  <form action="register.php" method="post">
-    Username: <input type="text" name="user"><br>
-    Password <input type="password" name="pass"><br>
-    <button type="submit">Register</button>
-  </form>
+  <div class="form">
+    <h1>REGISTER</h1>
+    <form action="register.php" method="post">
+      <input type="text" name="user" placeholder="Username"><br><br>
+      <input type="password" name="pass" placeholder="Password"><br><br>
+      <button type="submit">REGISTER</button>
+    </form>
+    <br>
+  </div>
+
+</body>
+</html>

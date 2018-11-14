@@ -26,10 +26,12 @@
       die("Login failed");
     } else {
       $_SESSION["logged_in"] = "true";
-      header("Location: http://tracker.home/index.php/");
+      $_SESSION["username"] = $user_username;
+      header("Location: http://tracker.home/index.php");
     }
   } else {
-    echo "Login failed";
+    echo "<h1>Login Failed</h1>";
+    echo '<a href="http://tracker.home/login.html">Return to login</a>';
   }
 
   mysqli_close($conn);
