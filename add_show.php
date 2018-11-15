@@ -11,10 +11,11 @@
     $episodes = $_POST["episodes"];
     $tracker_user = $_SESSION["username"];
 
-    $server = "localhost";
+    $config = include('config.php');
+    $server = $config["server"];
     $db_name = "tracker";
     $username = "tracker";
-    $password = "password";
+    $password = $config["db_pass"];
 
     $conn = mysqli_connect($server, $username, $password, $db_name);
 
@@ -33,7 +34,7 @@
     }
 
     if (mysqli_query($conn, $query)) {
-      header("Location: http://tracker.home/index.php");
+      header("Location: index.php");
       die();
     }
 
@@ -48,13 +49,14 @@
   <title>Add show</title>
   <link rel="stylesheet" type="text/css" href="styles/forms.css">
   <link rel="stylesheet" type="text/css" href="styles/menu_bar.css">
+  <link rel="stylesheet" type="text/css" href="styles/nice_button.css">
   <link rel='stylesheet' type="text/css" href='https://fonts.googleapis.com/css?family=Rubik'>
 </head>
 <body>
   <div class="menuBar">
-    <a class="active logo left" href="index.php">TRACKER</a>
+    <a class="left" href="index.php" style="font-size: 35px;">TRACKER</a>
     <a class="right" href="logout.php">LOGOUT</a>
-    <a class="right" href="add_show.php">ADD SHOW</a>
+    <a class="active right" href="add_show.php">ADD SHOW</a>
   </div>
 
   <div class="form">
@@ -64,7 +66,7 @@
       <input type="text" name="name" placeholder="Show name"><br><br>
       <input type="number" name="seasons" placeholder="Number of seasons"><br><br>
       <input type="number" name="episodes" placeholder="Episodes per season"><br><br>
-      <button type="submit">ADD SHOW</button>
+      <button class="niceButton" type="submit">ADD SHOW</button>
     </form>
     <br>
   </div>

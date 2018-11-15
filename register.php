@@ -1,11 +1,14 @@
 <?php
 
-  $server = "localhost";
+  $config = include('config.php');
+  $server = $config["server"];
   $db_name = "tracker";
   $username = "tracker";
-  $password = "password";
+  $password = $config["db_pass"];
   $user_username = $_POST["user"];
   $user_pass = $_POST["pass"];
+
+  $user_pass = password_hash($user_pass, PASSWORD_DEFAULT);
 
   $conn = mysqli_connect($server, $username, $password, $db_name);
 

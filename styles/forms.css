@@ -14,6 +14,10 @@ body {
   margin: auto;
 }
 
+a {
+  color: #fb8122;
+}
+
 a:visited {
   color: #c8c8c8;
 }
@@ -25,7 +29,6 @@ a:visited {
 
 button {
   background: #fb8122;
-  height: 40px;
   width: 123px;
   border: none;
   font-size: 15px;

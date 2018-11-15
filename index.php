@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="styles/main_page.css">
   <link rel="stylesheet" type="text/css" href="styles/menu_bar.css">
   <link rel="stylesheet" type="text/css" href="styles/border.css">
+  <link rel="stylesheet" type="text/css" href="styles/nice_button.css">
   <link rel='stylesheet' type="text/css" href='https://fonts.googleapis.com/css?family=Rubik'>
 </head>
 <body>
@@ -45,10 +46,16 @@
 
       post("update_show.php", {id: show_id});
     }
+
+    function deleteShow(button) {
+      var show_id = button.id;
+
+      post("update_show.php", {id: show_id, mode: "delete"});
+    }
   </script>
 
   <div class="menuBar">
-    <a class="active logo left" href="index.php">TRACKER</a>
+    <a class="logo left" href="index.php" style="font-size: 35px;">TRACKER</a>
     <a class="right" href="logout.php">LOGOUT</a>
     <a class="right" href="add_show.php">ADD SHOW</a>
   </div>
@@ -59,10 +66,11 @@
     session_start();
     $tracker_user = $_SESSION["username"];
 
-    $server = "localhost";
+    $config = include('config.php');
+    $server = $config["server"];
     $db_name = "tracker";
     $username = "tracker";
-    $password = "password";
+    $password = $config["db_pass"];
 
     $conn = mysqli_connect($server, $username, $password, $db_name);
 
@@ -90,15 +98,14 @@
           <div class=\"border\">
             <h3>{$name}</h3>
             <h1 class=\"centered\">Show finished!</h1>
-            <br><br><br>
             <button id=\"{$id}\" onclick=\"deleteShow(this)\" class=\"niceButton\">DELETE<br>SHOW</button><br><br>
           </div>";
         } else {
           echo "
           <div class=\"border\">
-            <h3>{$name}</h3>
-            <p>Seasons: {$seasons}</p>
-            <p>Currently: Season {$current_season} Episode {$current_episode}</p>
+            <h2>{$name}</h2>
+            <p style=\"font-weight: bold;\">Currently: Season {$current_season} Episode {$current_episode}</p>
+            <!--<p>Seasons: {$seasons}</p>-->
             <p>{$eps_left_season} episodes left until the next season</p>
             <p>{$eps_left_show} episodes left in the show</p><br>
             <button id=\"{$id}\" onclick=\"watchEpisode(this)\" class=\"niceButton\">I WATCHED AN<br>EPISODE</button><br><br>

@@ -2,10 +2,11 @@
 
   session_start();
 
-  $server = "localhost";
+  $config = include('config.php');
+  $server = $config["server"];
   $db_name = "tracker";
   $username = "tracker";
-  $password = "password";
+  $password = $config["db_pass"];
   $user_username = $_POST["user"];
   $user_password = $_POST["pwd"];
 
@@ -16,18 +17,17 @@
     die("Connection failed: " . mysqli_connect_error());
   }
 
-  $sql = "SELECT username, password FROM users WHERE username='{$user_username}' AND password='{$user_password}';";
+  $sql = "SELECT username, password FROM users WHERE username='{$user_username}';";
 
   $result = mysqli_query($conn, $sql);
 
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
-    if ($row["username"] != $user_username && $row["password"] != $user_password) {
-      die("Login failed");
-    } else {
+    if (password_verify($user_password, $row["password"])) {
+      session_start();
       $_SESSION["logged_in"] = "true";
       $_SESSION["username"] = $user_username;
-      header("Location: http://tracker.home/index.php");
+      header("Location: index.php");
     }
   } else {
     echo "

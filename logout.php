@@ -3,6 +3,6 @@
   session_start();
   $_SESSION["logged_in"] = "false";
 
-  header('Location: http://tracker.home/login.html')
+  header('Location: login.html')
 
  ?>
