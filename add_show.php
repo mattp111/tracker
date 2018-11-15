@@ -47,11 +47,14 @@
 <head>
   <title>Add show</title>
   <link rel="stylesheet" type="text/css" href="styles/forms.css">
+  <link rel="stylesheet" type="text/css" href="styles/menu_bar.css">
   <link rel='stylesheet' type="text/css" href='https://fonts.googleapis.com/css?family=Rubik'>
 </head>
 <body>
   <div class="menuBar">
-    <h1 style="text-align: left;"><a id="homeLink" href="index.php">TRACKER</a></h1>
+    <a class="active logo left" href="index.php">TRACKER</a>
+    <a class="right" href="logout.php">LOGOUT</a>
+    <a class="right" href="add_show.php">ADD SHOW</a>
   </div>
 
   <div class="form">

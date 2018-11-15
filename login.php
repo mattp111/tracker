@@ -30,8 +30,19 @@
       header("Location: http://tracker.home/index.php");
     }
   } else {
-    echo "<h1>Login Failed</h1>";
-    echo '<a href="http://tracker.home/login.html">Return to login</a>';
+    echo "
+    <html>
+    <head>
+    <title>Login</title>
+    <link rel='stylesheet' type=\"text/css\" href='https://fonts.googleapis.com/css?family=Rubik'>
+    <link rel='stylesheet' type=\"text/css\" href='styles/status_page.css'>
+    </head>
+    <body>
+      <h1>Username or password incorrect</h1>
+      <h3>Try again <a href=\"login.html\">here</a></h3>
+    </body>
+    </html>
+    ";
   }
 
   mysqli_close($conn);

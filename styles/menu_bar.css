@@ -1,0 +1,38 @@
+.right {
+  text-align: right;
+  float: right;
+  display: block;
+}
+
+.left {
+  float: left;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1d2228;
+}
+
+.menuBar {
+  background-color: #1d2228;
+  color: #fb8122;
+  overflow: hidden;
+  height: 80px;
+}
+
+.menuBar a {
+  color: #fb8122;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.menuBar a:hover {
+  color: white;
+}
+
+.menuBar a.active {
+  text-decoration: underline;
+}

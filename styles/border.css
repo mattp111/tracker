@@ -1,0 +1,9 @@
+.border {
+  border-style: solid;
+  border-color: #696969;
+  border-width: 1px;
+  border-radius: 10px;
+  width: 20%;
+  margin: auto;
+  float: left;
+}

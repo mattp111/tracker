@@ -24,8 +24,18 @@
   }
 
   if (mysqli_query($conn, $query)) {
-    echo "User registerd<br>";
-    echo 'Login <a href="login.html">here</a>';
+    echo "
+    <html>
+    <head>
+    <title>Register</title>
+    <link rel='stylesheet' type=\"text/css\" href='https://fonts.googleapis.com/css?family=Rubik'>
+    <link rel='stylesheet' type=\"text/css\" href='styles/status_page.css'>
+    <body>
+      <h1>User registered</h1>
+      <h3>Login <a href=\"login.html\">here</a></h3>
+    </body>
+    </html>
+    ";
   } else {
     echo mysqli_error($conn);
   }
